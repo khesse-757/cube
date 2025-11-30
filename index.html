@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="controls">
+        <button id="toggleRotation">Pause Auto-Rotation</button>
+        <button id="resetCube">Reset</button>
+    </div>
+    
     <div class="container">
-        <div class="cube">
+        <div class="cube" id="cube">
             <div class="face front">Front</div>
             <div class="face back">Back</div>
             <div class="face right">Right</div>
@@ -18,8 +23,14 @@
         </div>
     </div>
     
+    <div class="instructions">
+        <p id="instructionText">Click and drag to rotate</p>
+    </div>
+    
     <footer>
         <a href="https://kahdev.me">← Back to kahdev.me</a>
     </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>

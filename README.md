@@ -1,75 +1,98 @@
 # 3D CSS Cube
 
-A pure CSS 3D rotating cube animation with no JavaScript required.
+An interactive 3D rotating cube with click-drag controls built with CSS and JavaScript.
 
 ![3D Cube Animation](cube.png)
 
-## 🔗 Live Demo
+## Live Demo
 
 **[cube.kahdev.me](https://cube.kahdev.me)**
 
 ## Description
 
-An interactive 3D cube built entirely with HTML and CSS. Uses CSS 3D transforms and keyframe animations to create a continuously rotating cube with six labeled faces.
+An interactive 3D cube that can be rotated by clicking and dragging, with keyboard controls and auto-rotation toggle. Built with HTML, CSS 3D transforms, and JavaScript.
 
-## Tech
+## Technologies
 
 - HTML5
 - CSS3
   - 3D Transforms (`perspective`, `rotateX`, `rotateY`, `translateZ`)
   - Keyframe animations
   - Flexbox positioning
+- JavaScript
+  - Mouse and touch event handling
+  - Keyboard controls
 
 ## Features
 
-- Pure CSS animation (no JavaScript)
-- Smooth infinite rotation
+- Click and drag to rotate the cube in any direction
+- Auto-rotation with pause/resume controls
+- Keyboard controls:
+  - `Space` - Toggle auto-rotation
+  - `Arrow keys` - Manual rotation when paused
+  - `R` - Reset to default position
+- Touch support for mobile devices
+- Smooth animations and transitions
 - Terminal-inspired dark theme matching [kahdev.me](https://kahdev.me)
 - Responsive design
 - Semi-transparent cube faces with green accent color
 
 ## Usage
 
-Clone and open `index.html` in any browser:
+### Local Development
+
+Clone the repository:
 ```bash
 git clone https://github.com/khesse-757/cube.git
 cd cube
-open index.html
 ```
 
-## 📁 Structure
+**Option 1: Direct open**
+```bash
+open index.html  # macOS
+# or
+start index.html  # Windows
+# or just double-click the file
+```
+
+**Option 2: Local server (recommended)**
+```bash
+python3 -m http.server 8000
+```
+
+This starts a local web server on port 8000, allowing you to test the site at `http://localhost:8000` exactly as it would appear when deployed.
+
+Then open your browser to: **http://localhost:8000**
+
+## Structure
 ```
 cube/
 ├── index.html        # Main HTML structure
 ├── style.css         # CSS animations and styling
+├── script.js         # Interactive controls
 ├── CNAME            # Custom domain configuration
 └── README.md        # This file
 ```
 
-## 🔧 How It Works
+## How It Works
 
 The cube uses CSS `transform-style: preserve-3d` to maintain 3D space, with each face positioned using:
 - `rotateY()` for front/back/left/right faces
 - `rotateX()` for top/bottom faces  
 - `translateZ()` to push faces outward from center
 
-The rotation animation applies both `rotateX(360deg)` and `rotateY(360deg)` over 10 seconds for a tumbling effect.
+JavaScript handles mouse/touch events to update rotation values in real-time, applying transforms to the cube element.
 
-## 🎨 Customization
+## Customization
 
 Adjust rotation speed in `style.css`:
 ```css
-@keyframes rotate {
-    from { transform: rotateX(0deg) rotateY(0deg); }
-    to { transform: rotateX(360deg) rotateY(360deg); }
-}
-
-.cube {
+.cube.auto-rotate {
     animation: rotate 10s infinite linear;  /* Change 10s to adjust speed */
 }
 ```
 
-Change cube size:
+Change cube size in `style.css`:
 ```css
 .cube,
 .face {
@@ -81,9 +104,15 @@ Change cube size:
 /* Update all translateZ values to half of new size */
 ```
 
-## 📝 License
+Modify rotation sensitivity in `script.js`:
+```javascript
+rotationY += deltaX * 0.5;  // Change 0.5 to adjust sensitivity
+rotationX -= deltaY * 0.5;
+```
 
-MIT License - feel free to use this code for your own projects
+## License
+
+MIT License - feel free to use this code for your own projects.
 
 ## Part of kahdev.me
 
@@ -95,7 +124,3 @@ Check out more projects at [kahdev.me/projects](https://kahdev.me/projects)
 
 - Website: [kahdev.me](https://kahdev.me)
 - GitHub: [@khesse-757](https://github.com/khesse-757)
-
----
-
-*Built with ☕ and CSS*
