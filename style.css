@@ -14,7 +14,8 @@ body {
     align-items: center;
     min-height: 100vh;
     perspective: 1000px;
-    overflow: hidden;
+    overflow-x: hidden;  /* Only hide horizontal overflow */
+    overflow-y: auto;     /* Allow vertical scrolling */
 }
 
 .controls {
