@@ -85,6 +85,8 @@ document.addEventListener('mouseup', () => {
 
 // Touch support for mobile
 container.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // Prevent scrolling when touching the cube
+    
     if (isAutoRotating) {
         isAutoRotating = false;
         toggleButton.textContent = getButtonText('Resume', '');
@@ -97,10 +99,12 @@ container.addEventListener('touchstart', (e) => {
     const touch = e.touches[0];
     previousMouseX = touch.clientX;
     previousMouseY = touch.clientY;
-});
+}, { passive: false }); // Important: allows preventDefault to work
 
 document.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
+    
+    e.preventDefault(); // Prevent scrolling while dragging
     
     const touch = e.touches[0];
     const deltaX = touch.clientX - previousMouseX;
@@ -113,9 +117,9 @@ document.addEventListener('touchmove', (e) => {
     
     previousMouseX = touch.clientX;
     previousMouseY = touch.clientY;
-});
+}, { passive: false }); // Important: allows preventDefault to work
 
-document.addEventListener('touchend', () => {
+document.addEventListener('touchend', (e) => {
     isDragging = false;
 });
 
