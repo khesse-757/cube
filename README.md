@@ -2,7 +2,7 @@
 
 An interactive 3D rotating cube with click-drag controls built with CSS and JavaScript.
 
-![3D Cube Animation](cube.png)
+![3D Cube Animation](small_cube.gif)
 
 ## Live Demo
 
