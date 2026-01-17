@@ -13,7 +13,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    perspective: 1000px;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -49,6 +48,7 @@ body {
 
 .container {
     perspective: 1000px;
+    perspective-origin: center center;
     cursor: grab;
     touch-action: none;
     -webkit-user-select: none;
@@ -64,6 +64,7 @@ body {
     height: 200px;
     position: relative;
     transform-style: preserve-3d;
+    transform-origin: center center;
 }
 
 .face {
@@ -78,6 +79,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     user-select: none;
+    backface-visibility: visible;
 }
 
 .front  { transform: rotateY(0deg) translateZ(100px); }
@@ -122,41 +124,41 @@ footer a:hover {
         padding-top: 100px;
         padding-bottom: 100px;
     }
-    
+
     .container {
         padding: 50px;
         margin: 20px 0;
     }
-    
+
     .cube,
     .face {
         width: 150px;
         height: 150px;
     }
-    
+
     .front  { transform: rotateY(0deg) translateZ(75px); }
     .back   { transform: rotateY(180deg) translateZ(75px); }
     .right  { transform: rotateY(90deg) translateZ(75px); }
     .left   { transform: rotateY(-90deg) translateZ(75px); }
     .top    { transform: rotateX(90deg) translateZ(75px); }
     .bottom { transform: rotateX(-90deg) translateZ(75px); }
-    
+
     .controls {
         flex-direction: column;
         gap: 5px;
         top: 10px;
     }
-    
+
     .controls button {
         padding: 8px 15px;
         font-size: 12px;
     }
-    
+
     .instructions {
         bottom: 60px;
         font-size: 12px;
     }
-    
+
     footer {
         bottom: 10px;
     }
