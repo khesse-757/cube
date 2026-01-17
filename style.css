@@ -47,7 +47,7 @@ body {
 }
 
 .container {
-    perspective: 1000px;
+    perspective: 2000px;
     perspective-origin: center center;
     cursor: grab;
     touch-action: none;
@@ -126,6 +126,7 @@ footer a:hover {
     }
 
     .container {
+        perspective: 1500px;
         padding: 50px;
         margin: 20px 0;
     }
